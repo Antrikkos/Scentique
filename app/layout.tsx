@@ -4,6 +4,7 @@ import "./globals.css";
 import CartProvider from "./components/Providers";
 import Navbar from "./components/Navbar";
 import ShoppingCartModal from "./components/ShoppingCartModal";
+import React from 'react'
 
 const inter = Inter({ subsets: ["latin"] });
 
