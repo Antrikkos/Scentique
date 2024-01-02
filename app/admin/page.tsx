@@ -53,6 +53,7 @@ export default function AdminPage() {
   useEffect(() => {
     fetch(`/api/admin/orders?token=${token}`, {
       method: 'Get',
+      cache: 'no-store'
     },)
       .then((res) => res.json())
       .then((data) => {

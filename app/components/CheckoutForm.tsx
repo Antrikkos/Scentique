@@ -49,7 +49,7 @@ export default function CheckoutForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const router = useRouter();
-  const onSubmit = async(data) => {
+  const onSubmit = async(data: any) => {
 
     let items: OrderItem[] = [];
     Object.values(cartDetails ?? {}).map(entry => {
