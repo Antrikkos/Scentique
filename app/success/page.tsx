@@ -23,7 +23,7 @@ export default async function CheckoutPage() {
           <p>Have a great day!</p>
 
           <Button asChild className="mt-5">
-            <Link href="/">GO back</Link>
+            <Link href="/">Go back</Link>
           </Button>
         </div>
       </div>

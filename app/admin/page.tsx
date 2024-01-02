@@ -3,10 +3,8 @@ import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
-import {Button} from '@sanity/ui'
-import Link from 'next/link'
 import Image from 'next/image'
-import {Minus, Plus} from 'lucide-react'
+import { Button } from "@/components/ui/button";
 
 export const dynamic = "force-dynamic";
 
@@ -53,7 +51,7 @@ export default function AdminPage() {
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`/api/admin?token=${token}`, {
+    fetch(`/api/admin/orders?token=${token}`, {
       method: 'Get',
     },)
       .then((res) => res.json())
@@ -110,13 +108,25 @@ export default function AdminPage() {
                           <div className="w-20">€{order.totalPrice}</div>
                           <div className="w-20">
                             {order.isPaid
-                              ? `Paid`
-                              : 'Not Paid'}
+                              ? (
+                                <p className='text-green-600'>Paid</p>
+                                )
+                              : (
+                                <div>
+                                  <p className='text-red-600'>Not Paid</p>
+                                </div>
+                              )}
                           </div>
                           <div className="w-32">
                             {order.isDelivered
-                              ? `Delivered`
-                              : 'Not Delivered'}
+                              ? (
+                                <p className='text-green-600'>Delivered</p>
+                              )
+                              : (
+                                <div>
+                                  <p className='text-red-600'>Not Delivered</p>
+                                </div>
+                              )}
                           </div>
                           <div className="w-20">
                             <ChevronUpIcon
@@ -126,44 +136,64 @@ export default function AdminPage() {
                             />
                           </div>
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm">
-                          {order.orderItems.map((entry) => (
-                            <div key={entry._id} className="flex p-6 w-full">
-                              <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                <Image
-                                  src={entry.image as string}
-                                  alt="Product image"
-                                  fill
-                                  priority={true}
-                                  sizes="(max-width: 100px) 100vw, (max-width: 100px) 50vw, 33vw"
-                                />
-                              </div>
-                              <div className="ml-4 flex flex-1 flex-col">
-                                <div>
-                                  <div className="flex justify-between text-base font-medium text-gray-900">
-                                    <h3>{entry.name}</h3>
-                                    <p className="ml-4">€{entry.price}</p>
-                                  </div>
+                        <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm space-y-3">
+                          <div className='flex flex-row justify-end space-x-5'>
+                            <Button className='bg-gray-600 hover:bg-gray-700' onClick={async () => {
+                              const res = await fetch(`/api/admin/setPaid?token=${token}`, {
+                                method: 'POST',
+                                body: JSON.stringify({
+                                  id: order._id
+                                })
+                              }, )
+                            }}>Update to Paid</Button>
+                            <Button className='bg-gray-600 hover:bg-gray-700' onClick={async () => {
+                              const res = await fetch(`/api/admin/setDelivered?token=${token}`, {
+                                method: 'POST',
+                                body: JSON.stringify({
+                                  id: order._id
+                                })
+                              }, )
+                            }}>Update to Delivered</Button>
+                          </div>
+                          <div className='p-2 border rounded'>
+                            {order.orderItems.map((entry) => (
+                              <div key={entry._id} className="flex p-6 w-full">
+                                <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                  <Image
+                                    src={entry.image as string}
+                                    alt="Product image"
+                                    fill
+                                    priority={true}
+                                    sizes="(max-width: 100px) 100vw, (max-width: 100px) 50vw, 33vw"
+                                  />
+                                </div>
+                                <div className="ml-4 flex flex-1 flex-col">
                                   <div>
-                                    <p className="mt-1 text-sm text-gray-500 line-clamp-2">
-                                      {entry.scent}
-                                    </p>
-                                    <p className="mt-1 text-sm text-gray-500 line-clamp-2">
-                                      {entry.color}
-                                    </p>
+                                    <div className="flex justify-between text-base font-medium text-gray-900">
+                                      <h3>{entry.name}</h3>
+                                      <p className="ml-4">€{entry.price}</p>
+                                    </div>
+                                    <div>
+                                      <p className="mt-1 text-sm text-gray-500 line-clamp-2">
+                                        {entry.scent}
+                                      </p>
+                                      <p className="mt-1 text-sm text-gray-500 line-clamp-2">
+                                        {entry.color}
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div className="flex flex-1 items-end justify-between text-sm">
+                                    <p className="text-gray-500">QTY: {entry.quantity}</p>
                                   </div>
                                 </div>
-                                <div className="flex flex-1 items-end justify-between text-sm">
-                                  <p className="text-gray-500">QTY: {entry.quantity}</p>
-                                </div>
                               </div>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
+
                         </Disclosure.Panel>
                       </div>
                     )}
                   </Disclosure>
-
                 </div>
               ))}
             </div>

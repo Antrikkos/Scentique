@@ -10,7 +10,6 @@ import {
 import Image from "next/image";
 import { useShoppingCart } from "use-shopping-cart";
 import { Plus, Minus } from "lucide-react";
-import 'react-phone-input-2/lib/material.css'
 import Link from 'next/link'
 import {useRouter} from 'next/navigation'
 
