@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: 'https://scentiquecy.vercel.app/Wax-Burners',
+      url: 'https://scentiquecy.vercel.app/Gift-Boxes',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,

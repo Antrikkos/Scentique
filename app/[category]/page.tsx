@@ -6,7 +6,7 @@ import Image from "next/image";
 async function getData(category: string) {
   let query;
   if (category == "All") {
-    query = `*[_type == "product"] {
+    query = `*[_type == "product"] | order(_createdAt desc) {
         _id,
           "imageUrl": images[0].asset->url,
           price,
