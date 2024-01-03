@@ -16,7 +16,7 @@ async function getData(category: string) {
       }`;
 
   } else {
-    query = `*[_type == "product" && category->name == "${category}"] {
+    query = `*[_type == "product" && category->name == "${category}"] | order(_createdAt desc) {
         _id,
           "imageUrl": images[0].asset->url,
           price,

@@ -16,7 +16,7 @@ const links = [
   { name: "Home", href: "/" },
   { name: "Candles", href: "/Candles" },
   { name: "Wax Melts", href: "/Wax-Melts" },
-  { name: "Wax Burners", href: "/Wax-Burners" },
+  { name: "Gift Boxes", href: "/Gift-Boxes" },
   { name: "About", href: "/about" },
 ];
 
@@ -26,6 +26,10 @@ export default function Navbar() {
   const { cartCount, handleCartClick } = useShoppingCart();
   return (
     <header className="mb-8 border-b">
+      <div className='justify-center text-center text-sm'>
+        <p className={cinzel.className}>Welcome to Scentique Experience !</p>
+        <p className='text-white bg-purple-800'>Minimum order for delivery €15. Free shipping for orders above €50.</p>
+      </div>
       <div className="flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
         <Link href="/">
           <h1 className="text-2xl md:text-4xl">
@@ -68,9 +72,9 @@ export default function Navbar() {
               Cart
             </span>
             {cartCount != 0 ? (
-                <span className="hidden text-xs font-semibold text-gray-500 sm:block">{cartCount}</span>
+              <span className="hidden text-xs font-semibold text-gray-500 sm:block">{cartCount}</span>
             ) : (
-                <p></p>
+              <p></p>
             )}
           </Button>
         </div>

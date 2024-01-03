@@ -64,10 +64,10 @@ export default async function Hero() {
             Wax Melts
           </Link>
           <Link
-            href="/Wax-Burners"
+            href="/Gift-Boxes"
             className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:text-primary font-semibold"
           >
-            Wax Burners
+            Gift Boxes
           </Link>
         </div>
       </div>
