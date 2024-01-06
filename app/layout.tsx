@@ -10,7 +10,9 @@ import Footer from '@/app/components/Footer'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Scentique",
+  title: "Scentique Cy",
+  applicationName: "Scentique Cy",
+  publisher: "Scentique Cy",
   description: "Scentique candle shop in Cyprus",
   verification: {
     google: "jpg9UCgbQGhsG6jMvE6zLdjLUexnERfI2jq1Z20xmLU"
