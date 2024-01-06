@@ -5,6 +5,7 @@ import CartProvider from "./components/Providers";
 import Navbar from "./components/Navbar";
 import ShoppingCartModal from "./components/ShoppingCartModal";
 import React from 'react'
+import Footer from '@/app/components/Footer'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,11 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <CartProvider>
-          <Navbar />
-          <ShoppingCartModal />
-          {children}
-        </CartProvider>
+        <div className="flex flex-col min-h-screen">
+          <CartProvider>
+            <Navbar />
+            <ShoppingCartModal />
+            {children}
+            <Footer />
+          </CartProvider>
+        </div>
       </body>
     </html>
   );

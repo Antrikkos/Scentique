@@ -14,8 +14,8 @@ async function getData() {
         "imageUrl": images[0].asset->url
       }`;
 
-  const data = await client.fetch(query);
-  return data;
+  // const data = await client.fetch(query);
+  return await client.fetch(query);
 }
 
 export default async function Newest() {
@@ -29,7 +29,7 @@ export default async function Newest() {
             Our Newest products
           </h2>
 
-          <Link className="text-primary flex items-center gap-x-1" href="/All">
+          <Link className="text-primary flex items-center gap-x-1" href={'/All'}>
             See All{" "}
             <span>
               <ArrowRight />

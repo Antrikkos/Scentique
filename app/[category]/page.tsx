@@ -4,7 +4,7 @@ import { client } from "../lib/sanity";
 import Image from "next/image";
 
 async function getData(category: string) {
-  let query;
+  let query: any;
   if (category == "All") {
     query = `*[_type == "product"] | order(_createdAt desc) {
         _id,
@@ -26,8 +26,8 @@ async function getData(category: string) {
       }`;
   }
 
-  const data = await client.fetch(query);
-  return data;
+  // const data = await client.fetch(query);
+  return await client.fetch(query);
 }
 
 export const dynamic = "force-dynamic";
