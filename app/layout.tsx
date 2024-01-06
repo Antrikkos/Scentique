@@ -25,15 +25,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+      <CartProvider>
         <div className="flex flex-col min-h-screen">
-          <CartProvider>
+          <div className='min-h-screen'>
             <Navbar />
             <ShoppingCartModal />
             {children}
-            <Footer />
-          </CartProvider>
+          </div>
+          <Footer />
         </div>
-      </body>
-    </html>
-  );
+      </CartProvider>
+    </body>
+</html>
+)
+  ;
 }

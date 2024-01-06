@@ -95,7 +95,7 @@ export default function CheckoutForm() {
   };
 
   return (
-    <div className='flex lg:space-x-5 flex-col-reverse lg:flex-row'>
+    <div className='flex lg:space-x-5 flex-col-reverse lg:flex-row w-full'>
       <div className='py-6 sm:w-full lg:w-7/12'>
         {cartCount === 0 ? (
           <Link href='/'>

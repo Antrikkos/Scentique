@@ -10,7 +10,7 @@ export default async function CheckoutPage() {
     // <div className="bg-white mx-auto max-w-2xl px-6  lg:max-w-7xl lg:px-8">
     //   <h1 className='font-bold text-3xl text-primary pt-7 pb-2 border-b-2 border-purple-900'>Thank you</h1>
     // </div>
-    <div className="h-screen">
+    <div className="bg-white">
       <div className="mt-32 md:max-w-[50vw] mx-auto">
         <CheckCheck className="text-green-600 w-16 h-16 mx-auto my-6" />
         <div className="text-center">
