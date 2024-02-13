@@ -11,7 +11,6 @@ async function getData(slug: string) {
           price,
           name,
           description,
-          colors,
           "slug": slug.current,
           "categoryName": category->name,
           "scentsNames": scents[]->name,

@@ -21,12 +21,11 @@ export default function ProductDetails({ fullProduct }: iAppProps) {
     name,
     description,
     scentsNames,
-    colors,
     price_id,
     _id,
   } = fullProduct;
 
-  const [selectedColor, setSelectedColor] = useState(colors[0]);
+  // const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedScent, setSelectedScent] = useState(scentsNames[0]);
 
   return (
@@ -54,14 +53,14 @@ export default function ProductDetails({ fullProduct }: iAppProps) {
           <ScentsDropDown scents={scentsNames} selected={selectedScent} setSelected={setSelectedScent}/>
         )}
 
-        {colors.length === 1 ? (
-          <div className='flex flex-col py-2'>
-            <p>Color</p>
-            <p className='p-2 w-fit border rounded-lg shadow-md'>{colors[0]}</p>
-          </div>
-        ) : (
-          <ColorsDropDown colors={colors} selected={selectedColor} setSelected={setSelectedColor}/>
-        )}
+        {/*{colors.length === 1 ? (*/}
+        {/*  <div className='flex flex-col py-2'>*/}
+        {/*    <p>Color</p>*/}
+        {/*    <p className='p-2 w-fit border rounded-lg shadow-md'>{colors[0]}</p>*/}
+        {/*  </div>*/}
+        {/*) : (*/}
+        {/*  <ColorsDropDown colors={colors} selected={selectedColor} setSelected={setSelectedColor}/>*/}
+        {/*)}*/}
         <span className="text-sm text-gray-500">
                 Tax included. Shipping calculated at checkout.
               </span>
@@ -79,9 +78,8 @@ export default function ProductDetails({ fullProduct }: iAppProps) {
           image={images[0]}
           name={name}
           price={price}
-          id={slug+selectedColor+selectedScent}
+          id={slug+selectedScent}
           price_id={price_id}
-          color={selectedColor}
           scent={selectedScent}
           slug={slug}
         />

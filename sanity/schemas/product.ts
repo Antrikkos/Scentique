@@ -20,12 +20,6 @@ export default {
       title: 'Description of product',
     },
     {
-      name: 'colors',
-      type: 'array',
-      title: 'Candle Colors',
-      of: [{type: 'string'}],
-    },
-    {
       name: 'scents',
       type: 'array',
       title: 'Candle Scents',

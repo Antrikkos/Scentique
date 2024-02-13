@@ -50,24 +50,30 @@ export default async function Hero() {
       </div>
 
       <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-        <div className="flex h-16 w-96 divide-x overflow-hidden rounded-lg border p-3 shadow-2xl">
+        <div className="flex h-16 w-full divide-x overflow-hidden rounded-lg border p-3 shadow-2xl">
           <Link
             href="/Candles"
-            className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:text-primary font-semibold"
+            className="flex w-1/4 items-center justify-center text-gray-500 transition duration-100 hover:text-primary font-semibold"
           >
             Candles
           </Link>
           <Link
             href="/Wax-Melts"
-            className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:text-primary font-semibold"
+            className="flex w-1/4 items-center justify-center text-gray-500 transition duration-100 hover:text-primary font-semibold"
           >
             Wax Melts
           </Link>
           <Link
             href="/Gift-Boxes"
-            className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:text-primary font-semibold"
+            className="flex w-1/4 items-center justify-center text-gray-500 transition duration-100 hover:text-primary font-semibold"
           >
             Gift Boxes
+          </Link>
+          <Link
+              href="/Diffusers"
+              className="flex w-1/4 items-center justify-center text-gray-500 transition duration-100 hover:text-primary font-semibold"
+          >
+            Diffusers
           </Link>
         </div>
       </div>

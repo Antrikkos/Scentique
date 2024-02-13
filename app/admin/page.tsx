@@ -14,13 +14,11 @@ interface OrderItem {
   quantity: number;
   image: string;
   price: number;
-  color: string;
   scent: string;
   "_id": string;
 }
 
 interface address {
-  title: string,
   firstName: string,
   lastName: string,
   email: string,
@@ -177,9 +175,6 @@ export default function AdminPage() {
                                     <div>
                                       <p className="mt-1 text-sm text-gray-500 line-clamp-2">
                                         {entry.scent}
-                                      </p>
-                                      <p className="mt-1 text-sm text-gray-500 line-clamp-2">
-                                        {entry.color}
                                       </p>
                                     </div>
                                   </div>

@@ -12,7 +12,6 @@ export interface ProductCart {
   image: any;
   price_id: string;
   id: string;
-  color: string;
   scent: string;
   slug: string;
 }
@@ -25,7 +24,6 @@ export default function AddToBag({
   price,
   price_id,
   id,
-  color,
   scent,
   slug,
 }: ProductCart) {
@@ -46,7 +44,6 @@ export default function AddToBag({
         addItem(product, {
           count: 1,
           product_metadata:{
-            color: color,
             scent: scent,
             slug: slug,
           },

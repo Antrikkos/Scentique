@@ -17,6 +17,7 @@ const links = [
   { name: "Candles", href: "/Candles" },
   { name: "Wax Melts", href: "/Wax-Melts" },
   { name: "Gift Boxes", href: "/Gift-Boxes" },
+  { name: "Diffusers", href: "/Diffusers" },
   { name: "About", href: "/about" },
 ];
 
