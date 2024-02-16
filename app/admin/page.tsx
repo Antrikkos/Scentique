@@ -15,6 +15,7 @@ interface OrderItem {
   image: string;
   price: number;
   scent: string;
+  weight: string;
   "_id": string;
 }
 
@@ -109,7 +110,7 @@ export default function AdminPage() {
                             {order.isPaid
                               ? (
                                 <p className='text-green-600'>Paid</p>
-                                )
+                              )
                               : (
                                 <div>
                                   <p className='text-red-600'>Not Paid</p>
@@ -129,9 +130,8 @@ export default function AdminPage() {
                           </div>
                           <div className="w-20">
                             <ChevronUpIcon
-                              className={`${
-                                open ? 'rotate-180 transform' : ''
-                              } h-5 w-5`}
+                              className={`${open ? 'rotate-180 transform' : ''
+                                } h-5 w-5`}
                             />
                           </div>
                         </Disclosure.Button>
@@ -143,7 +143,7 @@ export default function AdminPage() {
                                 body: JSON.stringify({
                                   id: order._id
                                 })
-                              }, )
+                              },)
                             }}>Update to Paid</Button>
                             <Button className='bg-gray-600 hover:bg-gray-700' onClick={async () => {
                               const res = await fetch(`/api/admin/setDelivered?token=${token}`, {
@@ -151,7 +151,7 @@ export default function AdminPage() {
                                 body: JSON.stringify({
                                   id: order._id
                                 })
-                              }, )
+                              },)
                             }}>Update to Delivered</Button>
                           </div>
                           <div className='p-2 border rounded'>
@@ -175,6 +175,9 @@ export default function AdminPage() {
                                     <div>
                                       <p className="mt-1 text-sm text-gray-500 line-clamp-2">
                                         {entry.scent}
+                                      </p>
+                                      <p className="mt-1 text-sm text-gray-500 line-clamp-2">
+                                        {entry.weight}
                                       </p>
                                     </div>
                                   </div>

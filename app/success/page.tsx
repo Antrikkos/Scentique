@@ -1,6 +1,6 @@
 import React from "react";
-import {CheckCheck} from 'lucide-react'
-import {Button} from '@/components/ui/button'
+import { CheckCheck } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
 export const dynamic = "force-dynamic";

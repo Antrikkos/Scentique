@@ -16,5 +16,15 @@ export interface fullProduct {
   name: string;
   description: string;
   price_id: string;
-  scentsNames: any;
+  scentsNames: [
+    {
+      scent: string;
+    }
+  ];
+  weightsObj: [
+    {
+      price: number;
+      weight: string;
+    }
+  ];
 }

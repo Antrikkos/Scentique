@@ -6,7 +6,7 @@ import { Plus, Minus } from "lucide-react";
 // import 'react-phone-input-2/lib/material.css'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form';
-import {useRouter} from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 interface OrderItem {
   name: string;
@@ -15,6 +15,7 @@ interface OrderItem {
   image: string;
   price: number;
   scent: string;
+  weight: string;
 }
 
 interface address {
@@ -47,7 +48,7 @@ export default function CheckoutForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const router = useRouter();
-  const onSubmit = async(data: any) => {
+  const onSubmit = async (data: any) => {
 
     let items: OrderItem[] = [];
     Object.values(cartDetails ?? {}).map(entry => {
@@ -58,6 +59,7 @@ export default function CheckoutForm() {
         image: entry.image,
         price: entry.price,
         scent: entry.product_data['scent'],
+        weight: entry.product_data['weight'],
       }
       items.push(item);
     })
@@ -83,7 +85,7 @@ export default function CheckoutForm() {
         shippingAddress: addressDetails,
         totalPrice: totalPrice,
       })
-    }, )
+    },)
 
     // console.log(response);
     clearCart();
@@ -112,27 +114,27 @@ export default function CheckoutForm() {
           <form onSubmit={handleSubmit(onSubmit)} className='border-2 shadow-lg flex flex-col p-2 rounded-lg text-sm md:text-md lg:text-md space-y-1 justify-evenly flex-1'>
             <div className='space-y-0'>
               <h1 className='text-sm py-2 px-1'>First Name</h1>
-            <input type="text" placeholder="Enter First name" {...register("First name", {required: true, maxLength: 80})} className='w-52 p-2' />
+              <input type="text" placeholder="Enter First name" {...register("First name", { required: true, maxLength: 80 })} className='w-52 p-2' />
             </div>
             <div className='space-y-0'>
               <h1 className='text-sm py-2 px-1'>Last Name</h1>
-            <input type="text" placeholder="Enter Last name" {...register("Last name", {required: true, maxLength: 100})} className='w-52 p-2' />
+              <input type="text" placeholder="Enter Last name" {...register("Last name", { required: true, maxLength: 100 })} className='w-52 p-2' />
             </div>
             <div className='space-y-0'>
               <h1 className='text-sm py-2 px-1'>Email</h1>
-            <input type="email" placeholder="Enter Email" {...register("Email", {required: true})} className='w-96 p-2' />
+              <input type="email" placeholder="Enter Email" {...register("Email", { required: true })} className='w-96 p-2' />
             </div>
             <div className='space-y-0'>
               <h1 className='text-sm py-2 px-1'>Mobile number</h1>
-              <input type="tel" placeholder="Enter Mobile number" {...register("Mobile number", {required: true, maxLength: 8, minLength: 8})} className='w-40 p-2' />
-              </div>
+              <input type="tel" placeholder="Enter Mobile number" {...register("Mobile number", { required: true, maxLength: 8, minLength: 8 })} className='w-40 p-2' />
+            </div>
             <div className='space-y-0'>
               <h1 className='text-sm py-2 px-1'>Address</h1>
-              <input type="text" placeholder="Enter Address" {...register("Address", {required: true})} className='w-72 p-2' />
+              <input type="text" placeholder="Enter Address" {...register("Address", { required: true })} className='w-72 p-2' />
             </div>
             <div className='space-y-0'>
               <h1 className='text-sm py-2 px-1'>City</h1>
-              <input type="text" placeholder="Enter City" {...register("City", {required: true})} className='w-72 p-2' />
+              <input type="text" placeholder="Enter City" {...register("City", { required: true })} className='w-72 p-2' />
             </div>
             <div className='space-y-0'>
               <h1 className='text-sm py-2 px-1'>Province</h1>
@@ -146,9 +148,9 @@ export default function CheckoutForm() {
             </div>
             <div className='space-y-0'>
               <h1 className='text-sm py-2 px-1'>Postal code</h1>
-              <input type="text" placeholder="Enter Postal code" {...register("Postal code", {required: true})} className='w-36 p-2' />
+              <input type="text" placeholder="Enter Postal code" {...register("Postal code", { required: true })} className='w-36 p-2' />
             </div>
-            <input type="submit" className='h-auto bg-purple-400 p-6 align-middle text-white rounded text-xl hover:cursor-pointer hover:bg-purple-600'/>
+            <input type="submit" className='h-auto bg-purple-400 p-6 align-middle text-white rounded text-xl hover:cursor-pointer hover:bg-purple-600' />
           </form>
         )}
       </div>
@@ -178,15 +180,12 @@ export default function CheckoutForm() {
                       </Link>
                       <p className="ml-4">€{entry.price}</p>
                     </div>
-                    {entry.product_data['scent'] !== null ? (
-                      <div>
-                        <p className="mt-1 text-sm text-gray-500 line-clamp-2">
-                          {entry.product_data['scent']}
-                        </p>
-                      </div>
-                    ) : (
-                      <div></div>
-                    )}
+                      <p className="mt-1 text-sm text-gray-500 line-clamp-2">
+                        {entry.product_data['scent']}
+                      </p>
+                      <p className="mt-1 text-sm text-gray-500 line-clamp-2">
+                        {entry.product_data['weight']}
+                      </p>
                   </div>
                   <div className="flex flex-1 items-end justify-between text-sm">
                     <p className="text-gray-500">QTY: {entry.quantity}</p>
@@ -194,14 +193,14 @@ export default function CheckoutForm() {
                     <div className="flex space-x-2">
                       <button
                         type="button"
-                        onClick={() => decrementItem(entry.id, {count:1})}
+                        onClick={() => decrementItem(entry.id, { count: 1 })}
                         className="text-primary hover:text-primary/80"
                       >
                         <Minus />
                       </button>
                       <button
                         type="button"
-                        onClick={() => incrementItem(entry.id, {count:1})}
+                        onClick={() => incrementItem(entry.id, { count: 1 })}
                         className="text-primary hover:text-primary/80"
                       >
                         <Plus />
@@ -222,6 +221,6 @@ export default function CheckoutForm() {
         </div>
 
       </div>
-  </div>
+    </div>
   );
 }

@@ -14,12 +14,11 @@ async function getData(slug: string) {
           "slug": slug.current,
           "categoryName": category->name,
           "scentsNames": scents[]->name,
+          'weightsObj': weights[]->{price, weight},
           price_id
       }`;
 
-  const data = await client.fetch(query);
-
-  return data;
+  return await client.fetch(query);
 }
 
 export const dynamic = "force-dynamic";
@@ -35,7 +34,7 @@ export default async function ProductPage({
       <div className="mx-auto max-w-screen-xl px-4 md:px-8">
         <div className="grid gap-8 md:grid-cols-2">
           <ImageGallery images={data.images} />
-          <ProductDetails fullProduct={data}/>
+          <ProductDetails fullProduct={data} />
         </div>
       </div>
     </div>

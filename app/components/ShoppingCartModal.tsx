@@ -11,7 +11,7 @@ import Image from "next/image";
 import { useShoppingCart } from "use-shopping-cart";
 import { Plus, Minus } from "lucide-react";
 import Link from 'next/link'
-import {useRouter} from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 export default function ShoppingCartModal() {
   const {
@@ -64,41 +64,37 @@ export default function ShoppingCartModal() {
                       </Link>
 
                       <div className="ml-4 flex flex-1 flex-col">
-                          <div>
-                            <div className="flex justify-between text-base font-medium text-gray-900">
-                              <Link href={`/product/${entry.product_data['slug']}`}>
-                                <h3>{entry.name}</h3>
-                              </Link>
-                              <p className="ml-4">€{entry.price}</p>
-                            </div>
-                            {entry.product_data['scent'] !== null && entry.product_data['color'] !== null ? (
-                              <div>
-                                <p className="mt-1 text-sm text-gray-500 line-clamp-2">
-                                  {entry.product_data['scent']}
-                                </p>
-                                <p className="mt-1 text-sm text-gray-500 line-clamp-2">
-                                  {entry.product_data['color']}
-                                </p>
-                              </div>
-                            ) : (
-                              <div></div>
-                            )}
+                        <div>
+                          <div className="flex justify-between text-base font-medium text-gray-900">
+                            <Link href={`/product/${entry.product_data['slug']}`}>
+                              <h3>{entry.name}</h3>
+                            </Link>
+                            <p className="ml-4">€{entry.price}</p>
                           </div>
+                            <div>
+                              <p className="mt-1 text-sm text-gray-500 line-clamp-2">
+                                {entry.product_data['scent']}
+                              </p>
+                              <p className="mt-1 text-sm text-gray-500 line-clamp-2">
+                                {entry.product_data['weight']}
+                              </p>
+                            </div>
+                        </div>
                         <div className="flex flex-1 items-end justify-between text-sm">
                           <p className="text-gray-500">QTY: {entry.quantity}</p>
 
                           <div className="flex space-x-2">
                             <button
                               type="button"
-                              onClick={() => decrementItem(entry.id, {count:1})}
+                              onClick={() => decrementItem(entry.id, { count: 1 })}
                               className="text-primary hover:text-primary/80"
                             >
                               <Minus />
                             </button>
                             <button
-                                type="button"
-                                onClick={() => incrementItem(entry.id, {count:1})}
-                                className="text-primary hover:text-primary/80"
+                              type="button"
+                              onClick={() => incrementItem(entry.id, { count: 1 })}
+                              className="text-primary hover:text-primary/80"
                             >
                               <Plus />
                             </button>

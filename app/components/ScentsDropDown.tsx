@@ -14,7 +14,7 @@ interface iAppProps {
 
 export default function ScentsDropDown({ scents, selected, setSelected }: iAppProps) {
     return (
-        <div className="py-4 w-72" style={{position: "relative", zIndex: 1}}>
+        <div className="py-4 w-72">
             <p>Select Scent</p>
             <Listbox value={selected} onChange={setSelected}>
                 <div className="relative mt-1">

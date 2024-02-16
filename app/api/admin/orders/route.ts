@@ -1,5 +1,5 @@
-import {NextResponse} from 'next/server'
-import {connect} from '@/app/lib/db'
+import { NextResponse } from 'next/server'
+import { connect } from '@/app/lib/db'
 import Order from '@/models/Order'
 
 export const dynamic = "force-dynamic";

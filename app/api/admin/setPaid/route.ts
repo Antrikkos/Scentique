@@ -1,6 +1,6 @@
-import {connect} from '@/app/lib/db'
+import { connect } from '@/app/lib/db'
 import Order from '@/models/Order'
-import {NextResponse} from 'next/server'
+import { NextResponse } from 'next/server'
 
 export const dynamic = "force-dynamic";
 

@@ -70,8 +70,8 @@ export default async function Hero() {
             Gift Boxes
           </Link>
           <Link
-              href="/Diffusers"
-              className="flex w-1/4 items-center justify-center text-gray-500 transition duration-100 hover:text-primary font-semibold"
+            href="/Diffusers"
+            className="flex w-1/4 items-center justify-center text-gray-500 transition duration-100 hover:text-primary font-semibold"
           >
             Diffusers
           </Link>

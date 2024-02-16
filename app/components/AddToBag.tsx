@@ -13,6 +13,10 @@ export interface ProductCart {
   price_id: string;
   id: string;
   scent: string;
+  weightObj: {
+    price: number;
+    weight: string;
+  }
   slug: string;
 }
 
@@ -25,9 +29,10 @@ export default function AddToBag({
   price_id,
   id,
   scent,
+  weightObj,
   slug,
 }: ProductCart) {
-  const { addItem, handleCartClick } = useShoppingCart();
+  const { addItem, handleCartClick, cartDetails } = useShoppingCart();
 
   const product = {
     name: name,
@@ -41,14 +46,20 @@ export default function AddToBag({
   return (
     <Button
       onClick={() => {
+        if (weightObj.price !== null) {
+          product.price = weightObj.price
+          product.id = product.id + weightObj.weight
+        }
         addItem(product, {
           count: 1,
-          product_metadata:{
+          product_metadata: {
             scent: scent,
             slug: slug,
+            weight: weightObj.weight,
           },
         })
         handleCartClick();
+        console.log(cartDetails)
       }}
     >
       Add To Cart

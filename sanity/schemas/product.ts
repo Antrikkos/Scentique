@@ -1,7 +1,7 @@
 export default {
   name: 'product',
   type: 'document',
-  title: 'Product',
+  title: 'Products',
   fields: [
     {
       name: 'name',
@@ -31,6 +31,19 @@ export default {
           ]
         }
       ],
+    },
+    {
+      name: 'weights',
+      type: 'array',
+      title: 'Weights',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'weights'}
+          ]
+        }
+      ]
     },
     {
       name: 'slug',

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ShoppingBag } from "lucide-react";
 import { useShoppingCart } from "use-shopping-cart";
-import {Cinzel} from 'next/font/google'
+import { Cinzel } from 'next/font/google'
 
 const cinzel = Cinzel({
   subsets: ['latin'],
@@ -66,7 +66,7 @@ export default function Navbar() {
             onClick={() => handleCartClick()}
             className="flex flex-col gap-y-1.5 h-12 w-12 sm:h-20 sm:w-20 md:h-24 md:w-24 rounded-none"
           >
-            <ShoppingBag/>
+            <ShoppingBag />
 
 
             <span className="hidden text-xs font-semibold text-gray-500 sm:block">
