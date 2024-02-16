@@ -21,8 +21,8 @@ export default function ImageGallery({ images }: iAppProps) {
           <div key={idx} className="relative overflow-hidden rounded-lg bg-gray-100 shadow-2xl">
             <Image
               src={urlFor(image).url()}
-              width={200}
-              height={200}
+              width={100}
+              height={100}
               alt="photo"
               className="h-full w-full object-cover object-center cursor-pointer"
               onClick={() => handleSmallImageClick(image)}

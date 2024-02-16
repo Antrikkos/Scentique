@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { ShoppingBag } from "lucide-react";
 import { useShoppingCart } from "use-shopping-cart";
 import { Cinzel } from 'next/font/google'
+import NavDropDown from '@/app/components/NavDropDown'
 
 const cinzel = Cinzel({
   subsets: ['latin'],
@@ -29,9 +30,10 @@ export default function Navbar() {
     <header className="mb-8 border-b">
       <div className='justify-center text-center text-sm'>
         <p className={cinzel.className}>Welcome to Scentique Experience !</p>
-        <p className='text-white bg-purple-800'>Minimum order for delivery €15. Free shipping for orders above €50.</p>
+        <p className='text-white bg-purple-700'>Minimum order for delivery €15. Free shipping for orders above €50.</p>
       </div>
       <div className="flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
+        <NavDropDown links={links}/>
         <Link href="/">
           <h1 className="text-2xl md:text-4xl">
             <span className={cinzel.className}>Scentique</span>
@@ -60,7 +62,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="flex divide-x border-r sm:border-l">
+        <div className="flex divide-x">
           <Button
             variant={"outline"}
             onClick={() => handleCartClick()}
@@ -74,35 +76,33 @@ export default function Navbar() {
             </span>
             {cartCount != 0 ? (
               <span className="hidden text-xs font-semibold text-gray-500 sm:block">{cartCount}</span>
-            ) : (
-              <p></p>
-            )}
+            ) : null}
           </Button>
         </div>
       </div>
-      <div className='flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:hidden align-middle my-1'>
-        <nav className="flex gap-3 w-full items-center justify-between">
-          {links.map((link, idx) => (
-            <div key={idx}>
-              {pathname === link.href ? (
-                <Link
-                  className="text-sm md:text-lg font-semibold text-primary"
-                  href={link.href}
-                >
-                  {link.name}
-                </Link>
-              ) : (
-                <Link
-                  href={link.href}
-                  className="text-sm md:text-lg font-semibold text-gray-600 transition duration-100 hover:text-primary"
-                >
-                  {link.name}
-                </Link>
-              )}
-            </div>
-          ))}
-        </nav>
-      </div>
+      {/*<div className='flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:hidden align-middle my-1'>*/}
+      {/*  <nav className="flex gap-3 w-full items-center justify-between">*/}
+      {/*    {links.map((link, idx) => (*/}
+      {/*      <div key={idx}>*/}
+      {/*        {pathname === link.href ? (*/}
+      {/*          <Link*/}
+      {/*            className="text-sm md:text-lg font-semibold text-primary"*/}
+      {/*            href={link.href}*/}
+      {/*          >*/}
+      {/*            {link.name}*/}
+      {/*          </Link>*/}
+      {/*        ) : (*/}
+      {/*          <Link*/}
+      {/*            href={link.href}*/}
+      {/*            className="text-sm md:text-lg font-semibold text-gray-600 transition duration-100 hover:text-primary"*/}
+      {/*          >*/}
+      {/*            {link.name}*/}
+      {/*          </Link>*/}
+      {/*        )}*/}
+      {/*      </div>*/}
+      {/*    ))}*/}
+      {/*  </nav>*/}
+      {/*</div>*/}
     </header>
   );
 }

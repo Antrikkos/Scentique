@@ -12,7 +12,7 @@ interface iAppProps {
   fullProduct: any;
 }
 
-function reducer(state, action) {
+function reducer(state: any, action: { price: number; weight: string; }) {
 
     return {
         price: action.price,
@@ -110,7 +110,7 @@ export default function ProductDetails({ fullProduct }: iAppProps) {
         />
       </div>
 
-      <p className="mt-12 text-base text-gray-500 tracking-wide">
+      <p className="mt-12 text-base text-gray-500 tracking-wide pb-6">
         {description}
       </p>
     </div>

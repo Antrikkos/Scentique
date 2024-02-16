@@ -49,7 +49,7 @@ export default async function Hero() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+      <div className="hidden sm:flex flex-col items-center justify-between gap-8 md:flex-row">
         <div className="flex h-16 w-full divide-x overflow-hidden rounded-lg border p-3 shadow-2xl">
           <Link
             href="/Candles"
