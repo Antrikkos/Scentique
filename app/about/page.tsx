@@ -21,7 +21,7 @@ export default async function AboutPage() {
         <h1 className='text-2xl font-bold tracking-tight text-gray-900'>About Scentique</h1>
 
       </div>
-      <div className="flex flex-col lg:flex-row lg:space-x-6">
+      <div className="flex flex-col lg:flex-row lg:space-x-6 space-y-3">
         <div className="space-y-3">
           <p>
             Welcome to Scentique, where we believe that a single flame has the power to ignite countless moments of
@@ -68,13 +68,13 @@ export default async function AboutPage() {
         <div className="space-y-3">
           <p>
             But our dedication to excellence goes beyond just the finished product. We are deeply committed to
-            sustainability and ethical practices every step of the way. That's why we prioritize eco-friendly materials,
+            sustainability and ethical practices every step of the way. That&apos;s why we prioritize eco-friendly materials,
             recyclable packaging, and responsible manufacturing processes that minimize our impact on the planet. We
             believe that beauty should never come at the expense of the environment, and we strive to lead by example in
             everything we do.
           </p>
           <p>
-            At the heart of our brand is a celebration of life's simple pleasures – the joy of curling up with a good
+            At the heart of our brand is a celebration of life&apos;s simple pleasures – the joy of curling up with a good
             book by the glow of a candle, the comfort of coming home to familiar scents that evoke memories of love and
             laughter, the sense of peace that washes over you as you inhale the calming aroma of lavender or eucalyptus.
           </p>
@@ -84,9 +84,9 @@ export default async function AboutPage() {
       <div className="flex flex-col lg:flex-row space-x-6">
         <div className="space-y-3">
           <p>
-            Whether you're searching for the perfect gift for a loved one, seeking to create a cozy ambiance in your
+            Whether you&apos;re searching for the perfect gift for a loved one, seeking to create a cozy ambiance in your
             home, or simply treating yourself to a moment of self-care, we invite you to explore our collection and
-            discover the transformative power of scent. From our signature blends inspired by nature's bounty to our
+            discover the transformative power of scent. From our signature blends inspired by nature&apos;s bounty to our
             limited edition releases that capture the essence of the seasons, each candle is a testament to our
             dedication to craftsmanship, quality, and the pursuit of beauty in the everyday.
           </p>
