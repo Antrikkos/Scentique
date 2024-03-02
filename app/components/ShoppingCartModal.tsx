@@ -32,7 +32,7 @@ export default function ShoppingCartModal() {
   async function handleCheckoutClick(event: any) {
     event.preventDefault();
     handleCartClick();
-    await router.push('/checkout');
+    router.push('/checkout');
   }
 
   return (
@@ -55,8 +55,6 @@ export default function ShoppingCartModal() {
                           <Image
                             src={entry.image as string}
                             alt="Product image"
-                            // width={100}
-                            // height={100}
                             fill
                             sizes="(max-width: 100px) 100vw, (max-width: 100px) 50vw, 33vw"
                           />

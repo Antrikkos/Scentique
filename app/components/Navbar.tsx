@@ -35,9 +35,10 @@ export default function Navbar() {
       <div className="flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
         <NavDropDown links={links}/>
         <Link href="/">
-          <h1 className="text-2xl md:text-4xl">
-            <span className={cinzel.className}>Scentique</span>
-          </h1>
+          <div className="text-2xl md:text-4xl flex flex-col items-center">
+            <span className={cinzel.className}>Scentique Cy</span>
+            {/*<h5 className={cinzel.className}>Cy</h5>*/}
+          </div>
         </Link>
 
         <nav className="hidden gap-12 lg:flex 2xl:ml-16">

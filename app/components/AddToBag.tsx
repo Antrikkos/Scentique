@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { useShoppingCart } from "use-shopping-cart";
 import { urlFor } from "../lib/sanity";
+import {Minus, Plus} from "lucide-react";
+import {useState} from "react";
 
 export interface ProductCart {
   name: string;
@@ -32,6 +34,9 @@ export default function AddToBag({
   weightObj,
   slug,
 }: ProductCart) {
+
+  const [count, setCount] = useState(1);
+
   const { addItem, handleCartClick, cartDetails } = useShoppingCart();
 
   const product = {
@@ -44,25 +49,49 @@ export default function AddToBag({
     id: id,
   };
   return (
-    <Button
-      onClick={() => {
-        if (weightObj.price !== null) {
-          product.price = weightObj.price
-          product.id = product.id + weightObj.weight
-        }
-        addItem(product, {
-          count: 1,
-          product_metadata: {
-            scent: scent,
-            slug: slug,
-            weight: weightObj.weight,
-          },
-        })
-        handleCartClick();
-        console.log(cartDetails)
-      }}
-    >
-      Add To Cart
-    </Button>
+      <div className="flex flex-row space-x-4">
+        <div className="flex space-x-6 align-middle border rounded-md items-center px-2 shadow">
+          <button
+              type="button"
+              onClick={() => {
+                if (count !== 1)
+                  setCount(count-1)
+              }}
+              className="text-primary hover:text-primary/80"
+          >
+            <Minus />
+          </button>
+          <p className="min-w-5 text-center">{count}</p>
+          <button
+              type="button"
+              onClick={() => setCount(count+1)}
+              className="text-primary hover:text-primary/80"
+          >
+            <Plus />
+          </button>
+        </div>
+        <Button
+            className="border rounded-md shadow"
+            onClick={() => {
+              if (weightObj.price !== null) {
+                product.price = weightObj.price
+                product.id = product.id + weightObj.weight
+              }
+              addItem(product, {
+                count: count,
+                product_metadata: {
+                  scent: scent,
+                  slug: slug,
+                  weight: weightObj.weight,
+                },
+              })
+              handleCartClick();
+              setCount(1);
+            }}
+        >
+          Add To Cart
+        </Button>
+      </div>
+
   );
 }
