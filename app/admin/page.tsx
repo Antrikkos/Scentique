@@ -76,7 +76,7 @@ export default function AdminPage() {
         setData(data)
         setLoading(false)
       })
-  }, [])
+  }, )
 
   if (isLoading) return <p>Loading...</p>
   if (!data) return <p>No profile data</p>

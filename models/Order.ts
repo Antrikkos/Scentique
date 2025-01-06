@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, {Model} from 'mongoose'
 
 const orderSchema = new mongoose.Schema({
   orderItems: [
@@ -27,5 +27,5 @@ const orderSchema = new mongoose.Schema({
   isDelivered: { type: Boolean, required: true, default: false },
 }, { timestamps: true });
 
-const Order = mongoose.models.Order || mongoose.model('Order', orderSchema);
+const Order:Model<any> = mongoose.models.Order || mongoose.model('Order', orderSchema);
 export default Order;
