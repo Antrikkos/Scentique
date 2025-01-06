@@ -110,7 +110,7 @@ export default function ProductDetails({ fullProduct }: iAppProps) {
         />
       </div>
 
-      <p className="mt-12 text-base text-gray-500 tracking-wide">
+      <p className="mt-12 text-base text-gray-500 tracking-wide whitespace-break-spaces">
         {description}
       </p>
     </div>
